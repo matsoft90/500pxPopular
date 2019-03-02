@@ -16,6 +16,7 @@
 		EF055C98222B009F0043962D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF055C97222B009F0043962D /* Result.swift */; };
 		EF055C9A222B013F0043962D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF055C99222B013F0043962D /* API.swift */; };
 		EF055C9D222B01CC0043962D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF055C9C222B01CC0043962D /* Image.swift */; };
+		EF0B76E2222B351A005D7A03 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B76E1222B351A005D7A03 /* DateFormatters.swift */; };
 		EF8D2300222B08AF00694510 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D22FF222B08AF00694510 /* User.swift */; };
 		EF8D2302222B0AEE00694510 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2301222B0AEE00694510 /* Photo.swift */; };
 		EF8D2304222B0C7200694510 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2303222B0C7200694510 /* PhotosResponse.swift */; };
@@ -24,6 +25,8 @@
 		EF8D230D222B1B1B00694510 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D230C222B1B1B00694510 /* ImageCell.swift */; };
 		EF8D2310222B1BCC00694510 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D230F222B1BCC00694510 /* UIImageExtensions.swift */; };
 		EF8D2312222B1F0E00694510 /* LoadingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2311222B1F0E00694510 /* LoadingFooterView.swift */; };
+		EF8D2316222B2B8E00694510 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2315222B2B8E00694510 /* ImageViewController.swift */; };
+		EF8D2319222B2BC100694510 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2318222B2BC100694510 /* DismissAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,7 @@
 		EF055C97222B009F0043962D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		EF055C99222B013F0043962D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EF055C9C222B01CC0043962D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		EF0B76E1222B351A005D7A03 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		EF8D22FF222B08AF00694510 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF8D2301222B0AEE00694510 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		EF8D2303222B0C7200694510 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
@@ -46,6 +50,8 @@
 		EF8D230C222B1B1B00694510 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		EF8D230F222B1BCC00694510 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		EF8D2311222B1F0E00694510 /* LoadingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterView.swift; sourceTree = "<group>"; };
+		EF8D2315222B2B8E00694510 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		EF8D2318222B2BC100694510 /* DismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 				EF055C89222B00270043962D /* Assets.xcassets */,
 				EF055C8B222B00270043962D /* LaunchScreen.storyboard */,
 				EF055C8E222B00270043962D /* Info.plist */,
+				EF8D2317222B2BB500694510 /* Helper */,
 				EF8D230E222B1BBE00694510 /* Extensions */,
 				EF8D230B222B1B0400694510 /* Controllers */,
 				EF8D230A222B1AF900694510 /* Views */,
@@ -136,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				EF055C84222B00240043962D /* PopularViewController.swift */,
+				EF8D2315222B2B8E00694510 /* ImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -146,6 +154,15 @@
 				EF8D230F222B1BCC00694510 /* UIImageExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EF8D2317222B2BB500694510 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EF8D2318222B2BC100694510 /* DismissAnimator.swift */,
+				EF0B76E1222B351A005D7A03 /* DateFormatters.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,14 +241,17 @@
 				EF055C85222B00240043962D /* PopularViewController.swift in Sources */,
 				EF8D230D222B1B1B00694510 /* ImageCell.swift in Sources */,
 				EF8D2312222B1F0E00694510 /* LoadingFooterView.swift in Sources */,
+				EF0B76E2222B351A005D7A03 /* DateFormatters.swift in Sources */,
 				EF8D2310222B1BCC00694510 /* UIImageExtensions.swift in Sources */,
 				EF055C9D222B01CC0043962D /* Image.swift in Sources */,
 				EF8D2304222B0C7200694510 /* PhotosResponse.swift in Sources */,
 				EF055C9A222B013F0043962D /* API.swift in Sources */,
 				EF8D2307222B100800694510 /* Constants.swift in Sources */,
 				EF055C96222B00770043962D /* NetworkService.swift in Sources */,
+				EF8D2316222B2B8E00694510 /* ImageViewController.swift in Sources */,
 				EF8D2300222B08AF00694510 /* User.swift in Sources */,
 				EF055C98222B009F0043962D /* Result.swift in Sources */,
+				EF8D2319222B2BC100694510 /* DismissAnimator.swift in Sources */,
 				EF055C83222B00240043962D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,9 @@ class API {
             switch result {
             case .success(let data):
                 do {
-                    let resp = try JSONDecoder().decode(PhotosResponse.self, from: data)
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(DateFormatter.dateTime)
+                    let resp = try decoder.decode(PhotosResponse.self, from: data)
                     DispatchQueue.main.async {
                         completion(.success(resp))
                     }

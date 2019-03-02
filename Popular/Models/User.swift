@@ -9,7 +9,7 @@
 import Foundation
 
 struct ImageUrl: Codable {
-    let url: String
+    let url: URL
     
     private enum CodingKeys: String, CodingKey {
         case url = "https"

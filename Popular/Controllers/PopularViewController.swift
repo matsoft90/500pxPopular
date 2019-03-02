@@ -24,6 +24,17 @@ class PopularViewController: UIViewController {
         loadMorePhotos()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let nav = segue.destination as? UINavigationController, let imageVC = nav.viewControllers.first as? ImageViewController {
+            let handler = TransitioningHandler.shared
+            imageVC.transitioningDelegate = handler
+            imageVC.interactor = handler.interactor
+            if let cell = sender as? ImageCell, let indexPath = collectionView.indexPath(for: cell) {
+                imageVC.photo = photos[indexPath.item]
+                imageVC.image = cell.imageView.image
+            }
+        }
+    }
 }
 
 extension PopularViewController {
