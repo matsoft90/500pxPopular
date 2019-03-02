@@ -9,19 +9,26 @@
 import Foundation
 
 protocol Requests {
-    func url() throws -> URL
+    func asUrl() throws -> URL
     var params: [String: String] {get}
 }
 
+extension Requests {
+    var params: [String: String] {
+        return [:]
+    }
+}
+
 protocol Service {
-    func get(request: Requests, completion: @escaping (Result<Data>) -> Void)
+    @discardableResult
+    func get(request: Requests, completion: @escaping (Result<Data>) -> Void) -> URLSessionDataTask?
 }
 
 final class NetworkService: Service {
-    func get(request: Requests, completion: @escaping (Result<Data>) -> Void) {
+    func get(request: Requests, completion: @escaping (Result<Data>) -> Void) -> URLSessionDataTask? {
         // create data task
         do {
-            var url = try request.url()
+            var url = try request.asUrl()
             let params = request.params
             // append params
             if params.count > 0 {
@@ -34,7 +41,7 @@ final class NetworkService: Service {
                 // recreate the url
                 guard let reconstructedUrl = components?.url else {
                     completion(.error(ServiceError.invalidParams))
-                    return
+                    return nil
                 }
                 url = reconstructedUrl
             }
@@ -50,9 +57,11 @@ final class NetworkService: Service {
                 completion(.success(data))
             }
             task.resume()
+            return task
         } catch {
             completion(.error(error))
         }
+        return nil
     }
 }
 

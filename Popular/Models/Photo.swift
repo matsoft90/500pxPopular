@@ -11,7 +11,7 @@ import Foundation
 struct Photo: Codable {
     let images: [Image]
     let nsfw: Bool
-    let imageUrl: [String]
+    let imageUrl: [URL]
     let votesCount: Int
     let description: String?
     let user: User

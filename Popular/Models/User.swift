@@ -24,12 +24,12 @@ struct Avatars: Codable {
 
 struct User: Codable {
     let id: Int
-    let fullName: String
+    let fullName: String?
     let city: String?
-    let username: String
-    let firstName: String
-    let lastName: String
-    let avatars: Avatars
+    let username: String?
+    let firstName: String?
+    let lastName: String?
+    let avatars: Avatars?
     let country: String?
     private enum CodingKeys: String, CodingKey {
         case id

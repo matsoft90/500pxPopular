@@ -61,10 +61,11 @@ enum APIRequests: Requests {
         switch self {
         case .popular(let page):
             params["page"] = "\(page)"
+            params["image_size"] = "440,2048"
             return params
         }
     }
-    func url() throws -> URL {
+    func asUrl() throws -> URL {
         switch self {
         case .popular:
             if let url = URL(string: Constants.apiBaseUrl + Constants.Endpoints.photos) {
