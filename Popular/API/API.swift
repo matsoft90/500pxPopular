@@ -9,7 +9,6 @@
 import Foundation
 
 class API {
-    let service: Service
     /// Shared configuration for all services. Contains params for all services
     fileprivate static let config: [String: String]? = {
         guard let path = Bundle.main.path(forResource: "Config", ofType: "plist"), let config = NSDictionary(contentsOfFile: path) else {
@@ -17,6 +16,8 @@ class API {
         }
         return config as? [String: String]
     }()
+    // MARK: - Public
+    let service: Service
     convenience init() {
         self.init(service: NetworkService())
     }
@@ -82,10 +83,4 @@ enum APIRequests: Requests {
 enum APIError: Error {
     case noQuestions
     case invalidParams
-}
-
-extension String {
-    var urlQueryEncoded: String? {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-    }
 }

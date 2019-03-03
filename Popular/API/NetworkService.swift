@@ -31,7 +31,7 @@ final class NetworkService: Service {
             var url = try request.asUrl()
             let params = request.params
             // append params
-            if params.count > 0 {
+            if !params.isEmpty {
                 var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
                 var queryItems = components?.queryItems ?? [URLQueryItem]()
                 for (key, value) in params {

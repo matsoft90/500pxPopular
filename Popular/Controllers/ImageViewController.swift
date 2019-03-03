@@ -115,6 +115,7 @@ class ImageViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    /// Load the image into view
     fileprivate func loadImage() {
         // load the details
         informationView.userNameLabel.text = photo?.user.fullName
@@ -141,9 +142,11 @@ class ImageViewController: UIViewController {
         } else {
             informationView.isoLabel.superview?.isHidden = true
         }
+        // check if the image details can be shown as html
         if let desc = photo?.description, let data = desc.data(using: .utf8), let attributed = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             // description is html
             let mutable = NSMutableAttributedString(attributedString: attributed)
+            // change text color and font
             mutable.addAttributes([.foregroundColor: UIColor.white, .font: UIFont.systemFont(ofSize: 14)], range: NSRange(location: 0, length: mutable.length))
             informationView.imageDetailsTextView.attributedText = mutable
         } else {
