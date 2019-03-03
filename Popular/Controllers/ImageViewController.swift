@@ -13,6 +13,13 @@ class ImageInformationView: UIView {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var imageTitleLabel: UILabel!
     @IBOutlet weak var imageDetailsTextView: UITextView!
+    @IBOutlet weak var likesCountLabel: UILabel!
+    @IBOutlet weak var commentsCountLabel: UILabel!
+    @IBOutlet weak var takenOnLabel: UILabel!
+    @IBOutlet weak var uploadedOnLabel: UILabel!
+    @IBOutlet weak var cameraLabel: UILabel!
+    @IBOutlet weak var isoLabel: UILabel!
+
 }
 
 class ImageViewController: UIViewController {
@@ -27,6 +34,10 @@ class ImageViewController: UIViewController {
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var informationView: ImageInformationView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - Public
     var pageIndex: Int?
@@ -87,6 +98,15 @@ class ImageViewController: UIViewController {
         // add tap gesture recognizer to show and hide information
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer(_:)))
         view.addGestureRecognizer(tap)
+        
+        // add double tap recognizer for zoom
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
+        
+        // hide the information
+        informationView.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +119,28 @@ class ImageViewController: UIViewController {
         // load the details
         informationView.userNameLabel.text = photo?.user.fullName
         informationView.imageTitleLabel.text = photo?.name
+        informationView.likesCountLabel.text = "\(photo?.votesCount ?? 0)"
+        informationView.commentsCountLabel.text = "\(photo?.commentsCount ?? 0)"
+        if let taken = photo?.takenAt {
+            informationView.takenOnLabel.text = DateFormatter.localizedString(from: taken, dateStyle: .medium, timeStyle: .short)
+        } else {
+            informationView.takenOnLabel.superview?.isHidden = true
+        }
+        if let uploaded = photo?.createdAt {
+            informationView.uploadedOnLabel.text = DateFormatter.localizedString(from: uploaded, dateStyle: .medium, timeStyle: .short)
+        } else {
+            informationView.uploadedOnLabel.superview?.isHidden = true
+        }
+        if let camera = photo?.camera {
+            informationView.cameraLabel.text = camera
+        } else {
+            informationView.cameraLabel.superview?.isHidden = true
+        }
+        if let iso = photo?.iso {
+            informationView.isoLabel.text = iso
+        } else {
+            informationView.isoLabel.superview?.isHidden = true
+        }
         if let desc = photo?.description, let data = desc.data(using: .utf8), let attributed = try? NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             // description is html
             let mutable = NSMutableAttributedString(attributedString: attributed)
@@ -190,6 +232,17 @@ extension ImageViewController {
         informationView.isHidden = false
         UIView.animate(withDuration: 0.2) {
             self.informationView.alpha = destinationAlpha
+        }
+    }
+    
+    @objc fileprivate func doubleTapped(_ sender: UITapGestureRecognizer) {
+        // check if already zoomed in to max
+        if abs(scrollView.zoomScale - scrollView.maximumZoomScale) < .ulpOfOne {
+            // zoomed in
+            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        } else {
+            // zoom in
+            scrollView.setZoomScale(min(scrollView.zoomScale * 2, scrollView.maximumZoomScale), animated: true)
         }
     }
 }

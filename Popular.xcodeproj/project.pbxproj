@@ -17,6 +17,7 @@
 		EF055C9A222B013F0043962D /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF055C99222B013F0043962D /* API.swift */; };
 		EF055C9D222B01CC0043962D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF055C9C222B01CC0043962D /* Image.swift */; };
 		EF0B76E2222B351A005D7A03 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0B76E1222B351A005D7A03 /* DateFormatters.swift */; };
+		EF161E91222B4F2B0037446E /* StatusBarNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF161E90222B4F2B0037446E /* StatusBarNavigationController.swift */; };
 		EF8D2300222B08AF00694510 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D22FF222B08AF00694510 /* User.swift */; };
 		EF8D2302222B0AEE00694510 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2301222B0AEE00694510 /* Photo.swift */; };
 		EF8D2304222B0C7200694510 /* PhotosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8D2303222B0C7200694510 /* PhotosResponse.swift */; };
@@ -42,6 +43,7 @@
 		EF055C99222B013F0043962D /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		EF055C9C222B01CC0043962D /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		EF0B76E1222B351A005D7A03 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		EF161E90222B4F2B0037446E /* StatusBarNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarNavigationController.swift; sourceTree = "<group>"; };
 		EF8D22FF222B08AF00694510 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF8D2301222B0AEE00694510 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		EF8D2303222B0C7200694510 /* PhotosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosResponse.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				EF8D2318222B2BC100694510 /* DismissAnimator.swift */,
 				EF0B76E1222B351A005D7A03 /* DateFormatters.swift */,
+				EF161E90222B4F2B0037446E /* StatusBarNavigationController.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				EF0B76E2222B351A005D7A03 /* DateFormatters.swift in Sources */,
 				EF8D2310222B1BCC00694510 /* UIImageExtensions.swift in Sources */,
 				EF055C9D222B01CC0043962D /* Image.swift in Sources */,
+				EF161E91222B4F2B0037446E /* StatusBarNavigationController.swift in Sources */,
 				EF8D2304222B0C7200694510 /* PhotosResponse.swift in Sources */,
 				EF055C9A222B013F0043962D /* API.swift in Sources */,
 				EF8D2307222B100800694510 /* Constants.swift in Sources */,

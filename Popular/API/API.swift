@@ -63,7 +63,7 @@ enum APIRequests: Requests {
         switch self {
         case .popular(let page):
             params["page"] = "\(page)"
-            params["image_size"] = "440,2048"
+            params["image_size"] = "31,2048"
             return params
         }
     }

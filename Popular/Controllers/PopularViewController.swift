@@ -80,7 +80,7 @@ extension PopularViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.cellIdentifier, for: indexPath) as! ImageCell
         
-        if let index = photos[indexPath.item].images.lastIndex(where: {$0.size == Image.Size.square440}) {
+        if let index = photos[indexPath.item].images.lastIndex(where: {$0.size == Image.Size.high450}) {
             cell.imageUrl = photos[indexPath.item].images[index].httpsUrl
         } else {
             cell.imageUrl = nil
